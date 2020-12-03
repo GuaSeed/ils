@@ -1,0 +1,19 @@
+### GET request with disabled redirects
+# @no-redirect
+GET http://localhost:8080/v1/api/user/test
+
+### GET request with disabled redirects
+# @no-redirect
+GET http://localhost:8080/v1/api/user/2
+
+
+###
+POST http://localhost:8080/v1/api/user/login
+Content-Type: application/json
+
+{
+  "email": "123456@qq.com",
+  "password": "123456ab"
+}
+
+###

@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/ils?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456ab
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
