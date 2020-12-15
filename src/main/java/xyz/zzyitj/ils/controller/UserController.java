@@ -56,6 +56,14 @@ public class UserController {
     }
 
     @RequiresPermissions(value = {"user:show"})
+    @PostMapping(value = "${mapping.user.logout}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> logout() {
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return ResponseEntity.ok().build();
+    }
+
+    @RequiresPermissions(value = {"user:show"})
     @GetMapping(value = "${mapping.user.getById}")
     public ResponseEntity<UserDto> getById(HttpServletRequest request,
                                            @PathVariable("userId") Long userId) {

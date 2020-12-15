@@ -1,3 +1,9 @@
+POST http://localhost:8080/v1/api/user/logout
+Content-Type: application/json
+
+{}
+
+###
 ### GET request with disabled redirects
 # @no-redirect
 GET http://localhost:8080/v1/api/user/test
@@ -5,7 +11,6 @@ GET http://localhost:8080/v1/api/user/test
 ### GET request with disabled redirects
 # @no-redirect
 GET http://localhost:8080/v1/api/user/2
-
 
 ###
 POST http://localhost:8080/v1/api/user/login

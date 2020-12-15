@@ -15,17 +15,18 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-///**
-// * @author intent zzy.main@gmail.com
-// * @date 2020/11/28 15:16
-// * @since 1.0
-// */
-//@Component
+/**
+ * @author intent zzy.main@gmail.com
+ * @date 2020/11/28 15:16
+ * @since 1.0
+ */
+@Component
 public class PrintMapperComponent implements ApplicationContextAware {
     private static final Logger logger = LoggerFactory.getLogger(PrintMapperComponent.class);
     private boolean isPrint;
@@ -63,14 +64,7 @@ public class PrintMapperComponent implements ApplicationContextAware {
                         directUrlsField = o.getClass().getDeclaredField("directPaths");
                     }
                     directUrlsField.setAccessible(true);
-                    List<String> directUrls;
-                    try {
-                        directUrls = (List<String>) directUrlsField.get(o);
-                    } catch (ClassCastException e) {
-                        directUrls = ((HashSet<String>) directUrlsField.get(o))
-                                .parallelStream()
-                                .collect(Collectors.toList());
-                    }
+                    Collection<String> directUrls = (Collection<String>) directUrlsField.get(o);
                     String requestType = "REQUEST";
                     if (!info.getMethodsCondition().isEmpty()) {
                         requestType = info.getMethodsCondition().getMethods().iterator().next().name();

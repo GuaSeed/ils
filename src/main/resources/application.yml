@@ -24,6 +24,7 @@ mapping:
   user:
     base: /user
     login: /login
+    logout: /logout
     getById: '/{userId}'
     test: /test
   index:

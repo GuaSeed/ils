@@ -11,6 +11,5 @@ import lombok.Data;
 public class UserVo {
     private String email;
     private String password;
-    private String ip;
     private boolean rememberMe;
 }
